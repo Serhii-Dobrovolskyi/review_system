@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Container, Box, Typography, CssBaseline } from "@mui/material";
 import ReviewList from "./components/ReviewList";
 import ReviewForm from "./components/ReviewForm";
-
 import { TReview } from "./types/review";
+import "@fontsource/ubuntu";
+import "@fontsource/inter";
 
 const App = () => {
   const [reviews, setReviews] = useState<TReview[]>([]);
 
-  const handleAddReview = (
+  const handleAddReview = async (
     newReview: Omit<TReview, "id" | "date" | "user">
   ) => {
-    fetch("http://localhost:3000/", {
+    const response = await fetch("http://localhost:3000/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,14 +22,17 @@ const App = () => {
         rating: newReview.rating,
         service: newReview.service,
       }),
-    })
-      .then((response) => response.json())
-      .then((review) => setReviews((prev) => [review, ...prev]));
+    });
+    const review = await response.json();
+    setReviews((prev) => [review, ...prev]);
   };
   useEffect(() => {
-    fetch("http://localhost:3000/")
-      .then((response) => response.json())
-      .then((json) => setReviews(Object.values(json)));
+    const fetchReviews = async () => {
+      const response = await fetch("http://localhost:3000/");
+      const json = await response.json();
+      setReviews(Object.values(json));
+    };
+    fetchReviews();
   }, []);
   return (
     <Container maxWidth="md">
