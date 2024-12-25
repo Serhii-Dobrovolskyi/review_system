@@ -10,7 +10,7 @@ app.use(express.json());
 
 const auth = {
    id: 1,
-   name: "Serhii"
+   name: "Sergey"
 }
 
 

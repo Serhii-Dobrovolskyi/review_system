@@ -4,4 +4,5 @@ export type TReview = {
    comment: string;
    rating: number;
    date: string;
+   service:string;
 }

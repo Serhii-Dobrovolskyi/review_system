@@ -9,10 +9,9 @@ import {
 } from "@mui/material";
 import { TReview } from "../types/review";
 
-
 type TReviewListProps = {
   reviews: TReview[];
-}
+};
 
 const ReviewList: React.FC<TReviewListProps> = ({ reviews }) => {
   return (
@@ -30,7 +29,9 @@ const ReviewList: React.FC<TReviewListProps> = ({ reviews }) => {
             <CardContent>
               <Typography variant="subtitle1" fontWeight="bold">
                 {review.user}
-                
+              </Typography>
+              <Typography variant="subtitle1" color="text.primary">
+                Service: {review.service}
               </Typography>
               <Rating value={review.rating} readOnly />
               <Typography variant="body2" mt={1}>

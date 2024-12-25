@@ -8,15 +8,18 @@ import { TReview } from "./types/review";
 const App = () => {
   const [reviews, setReviews] = useState<TReview[]>([]);
 
-  const handleAddReview = (newReview: Omit<TReview, "id" | "date" | "user">) => {
+  const handleAddReview = (
+    newReview: Omit<TReview, "id" | "date" | "user">
+  ) => {
     fetch("http://localhost:3000/", {
       method: "POST",
-      headers:{
-        "Content-Type":"application/json"
+      headers: {
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         comment: newReview.comment,
         rating: newReview.rating,
+        service: newReview.service,
       }),
     })
       .then((response) => response.json())
