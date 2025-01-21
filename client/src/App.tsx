@@ -7,10 +7,11 @@ import { TReview } from "./types/review";
 const App = () => {
   const [reviews, setReviews] = useState<TReview[]>([]);
 
+  const baseUrl = import.meta.env.VITE_BASE_URL || 'http://localhost:3000'
   const handleAddReview = async (
     newReview: Omit<TReview, "id" | "date" | "user">
   ) => {
-    const response = await fetch("http://localhost:3000/", {
+    const response = await fetch(baseUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +27,7 @@ const App = () => {
   };
   useEffect(() => {
     const fetchReviews = async () => {
-      const response = await fetch("http://localhost:3000/");
+      const response = await fetch(baseUrl);
       const json = await response.json();
       setReviews(Object.values(json));
     };
