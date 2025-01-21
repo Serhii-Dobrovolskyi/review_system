@@ -7,6 +7,7 @@
     "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
     "installAll":"concurrently \"npm i --prefix client\" \"npm i --prefix server\""
   },
+  "workspaces": ["server", "client"],
   "author": "",
   "license": "ISC",
   "dependencies": {
