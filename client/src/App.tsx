@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Box, Typography, CssBaseline } from "@mui/material";
 import ReviewList from "./components/ReviewList";
 import ReviewForm from "./components/ReviewForm";
 import { TReview } from "./types/review";
-import "@fontsource/ubuntu";
-import "@fontsource/inter";
 
 const App = () => {
   const [reviews, setReviews] = useState<TReview[]>([]);
