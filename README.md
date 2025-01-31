@@ -64,3 +64,6 @@ Now we can start the server part in the `server` folder and the client part in t
 ## Conclusion
 
 This project demonstrates a simple, scalable, and usable prototype of a review system that matches the design and goals of the TalentHive platform. By utilizing React.js + TypeScipt and Material-UI, the application remains flexible for future improvements.
+
+
+The application has been successfully deployed and is now live! 🎉 You can check it out at https://zoological-prosperity-production.up.railway.app/
